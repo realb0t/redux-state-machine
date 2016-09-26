@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "shared-node-browser": true
+  },
+
+  "ecmaFeatures": {
+    "jsx": true,
+    "classes": true
+  },
+
+  "globals": {
+    "__DEV__": true,
+    "it": true,
+    "describe": true,
+    "sinon": true,
+    "expect": true,
+    "afterEach": true,
+    "require": true,
+    "beforeEach": true,
+    "WA": true,
+    "window": true,
+    "before": true,
+    "should": true
+  },
+
+  "rules": {
+    "brace-style": ["error", "allman", { "allowSingleLine": true }],
+    "eol-last": 0,
+    "comma-dangle": ["error", "never"],
+    "max-len": ["warn", {
+      "code": 120,
+      "tabWidth": 2,
+      "ignoreComments": true,
+      "ignoreTrailingComments": true,
+      "ignoreUrls": true
+    }]
+  }
+}
