@@ -21,7 +21,7 @@ npm install redux-state-machine --save
 
 ## Usage
 
-Describe reducer:
+Describe reducer (ES6):
 ```javascript
 import reducerBuilder from 'redux-state-machine';
 
@@ -32,6 +32,12 @@ const reducer = reducerBuilder({
     { name: 'FAILURE', from: 'LOADING', to: 'LOADING_FAILURE' }
   ]
 });
+```
+
+Describe reducer (ES5):
+```
+var reducerBuilder = require('redux-state-machine');
+var reducer = reducerBuilder.default({ /* ... */ });
 ```
 
 Initial reducer state is
