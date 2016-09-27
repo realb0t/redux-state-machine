@@ -1,6 +1,6 @@
 # redux-state-machine
 
-Implementation `javascript-state-machine` to __Redux__.
+Implementation [javascript-state-machine](http://github.com/jakesgordon/javascript-state-machine) to __[Redux](http://redux.js.org)__.
 
 Redux Action is Event for FSM. It changing FSM `state.status`
 and remember in `state.event`.
@@ -22,16 +22,16 @@ npm install redux-state-machine --save
 ## Usage
 
 Describe reducer:
-```ES6
+```javascript
 import reducerBuilder from 'redux-state-machine';
 
-export reducerBuilder({
+const reducer = reducerBuilder({
   events: [
-    { event: 'LOAD', from: 'INIT', to: 'LOADING' },
-    { event: 'SUCCESS', from: 'LOADING', to: 'LOADING_SUCCESS' },
-    { event: 'FAILURE', from: 'LOADING', to: 'LOADING_FAILURE' }
+    { name: 'LOAD', from: 'INIT', to: 'LOADING' },
+    { name: 'SUCCESS', from: 'LOADING', to: 'LOADING_SUCCESS' },
+    { name: 'FAILURE', from: 'LOADING', to: 'LOADING_FAILURE' }
   ]
-})
+});
 ```
 
 Initial reducer state is
