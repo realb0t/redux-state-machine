@@ -45,5 +45,9 @@
     "webpack": "^1.13.0"
   },
   "author": "Kazantsev Nickolay",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "javascript-state-machine": "^2.3.5",
+    "lodash": "^4.16.2"
+  }
 }
