@@ -35,7 +35,7 @@ const reducer = reducerBuilder({
 ```
 
 Describe reducer (ES5):
-```
+```javascript
 var reducerBuilder = require('redux-state-machine');
 var reducer = reducerBuilder.default({ /* ... */ });
 ```
