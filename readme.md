@@ -1,4 +1,4 @@
-# redux-state-machine [![Travis](https://img.shields.io/travis/realb0t/redux-state-machine.svg?style=flat-square)](https://github.com/realb0t/redux-state-machine) [![npm](https://img.shields.io/npm/v/redux-state-machine.svg?style=flat-square)](https://www.npmjs.com/package/redux-state-machine)
+# redux-state-machine [![Travis](https://img.shields.io/travis/realb0t/redux-state-machine.svg?style=flat-square)](https://github.com/realb0t/redux-state-machine) [![npm](https://img.shields.io/npm/v/redux-state-machine.svg?style=flat-square)](https://www.npmjs.com/package/redux-state-machine) [![npm](https://img.shields.io/npm/l/redux-state-machine.svg?style=flat-square)](https://github.com/realb0t/redux-state-machine/blob/master/LICENSE)
 
 Implementation [javascript-state-machine](http://github.com/jakesgordon/javascript-state-machine) to __[Redux](http://redux.js.org)__ as __Reducer__.
 
