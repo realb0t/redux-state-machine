@@ -25,8 +25,13 @@ const reducerBuilder = (fsmConfig) =>
   const existEvent = zipObject(eventNames, fill(Array(eventsCount),
     true, 0, eventsCount));
 
-  return (state = defaultState, action) =>
+  const reducer = (state = defaultState, action) =>
   {
+    if (fsm.current !== state.status)
+    {
+      fsm.current = state.status;
+    }
+
     if (typeof existEvent[action.type] === 'undefined')
     {
       // Ignore not event actions
@@ -52,6 +57,10 @@ const reducerBuilder = (fsmConfig) =>
       action
     };
   };
+
+  reducer.fsm = fsm;
+
+  return reducer;
 };
 
 export default reducerBuilder;

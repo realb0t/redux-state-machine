@@ -1,4 +1,5 @@
 import reducerBuilder, { defaultState } from './index.js';
+import assign from 'lodash/assign';
 
 let reducer = null;
 
@@ -50,6 +51,28 @@ describe('#reducerBuilder(fsmConfig)', () =>
       status: INIT,
       [INIT]: true,
       error: true,
+      action
+    });
+  });
+
+  it('Should be transit if current fsm state is not equal state status (unmutable emulation)', () =>
+  {
+    const newState = {
+      status: LOADING,
+      [LOADING]: true,
+      error: true,
+      action
+    };
+    const action = { type: SUCCESS };
+    
+    expect(reducer.fsm.current).to.be.equal(INIT);
+    expect(reducer.fsm.current).to.not.equal(newState.status);
+
+    const nextState = reducer(newState, action);
+    expect(nextState).to.be.eql({
+      status: LOADING_SUCCESS,
+      [LOADING_SUCCESS]: true,
+      error: null,
       action
     });
   });
