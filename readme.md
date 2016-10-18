@@ -1,6 +1,6 @@
-# redux-state-machine
+# redux-state-machine [![Travis](https://img.shields.io/travis/realb0t/redux-state-machine.svg?style=flat-square)](https://github.com/realb0t/redux-state-machine)
 
-Implementation [javascript-state-machine](http://github.com/jakesgordon/javascript-state-machine) to __[Redux](http://redux.js.org)__.
+Implementation [javascript-state-machine](http://github.com/jakesgordon/javascript-state-machine) to __[Redux](http://redux.js.org)__ as __Reducer__.
 
 Redux Action is Event for FSM. It changing FSM `state.status`
 and remember in `state.event`.
