@@ -16,6 +16,10 @@
     "flux",
     "machina"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realb0t/redux-state-machine.git"
+  },
   "devDependencies": {
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.4",
