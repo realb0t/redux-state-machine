@@ -1,6 +1,6 @@
 {
   "name": "redux-state-machine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Redux StateMachine reducer",
   "main": "dist/index.js",
   "scripts": {
