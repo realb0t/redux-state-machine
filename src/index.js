@@ -25,19 +25,26 @@ const reducerBuilder = (fsmConfig) =>
   const existEvent = zipObject(eventNames, fill(Array(eventsCount),
     true, 0, eventsCount));
 
+  // Create reducer function
   const reducer = (state = defaultState, action) =>
   {
+    // Ignore events that is not handling
+    if (typeof existEvent[action.type] === 'undefined')
+    {
+      return state;
+    }
+
+    // Immulation immutable state.
+    // For example FMS have one step
+    // and state parameter have other state.
     if (fsm.current !== state.status)
     {
       fsm.current = state.status;
     }
+    // Alternative is create here FSM object,
+    // but it may be so slowly.
 
-    if (typeof existEvent[action.type] === 'undefined')
-    {
-      // Ignore not event actions
-      return state;
-    }
-
+    // Check transition posible
     if (fsm.cannot(action.type))
     {
       // Set error if transition imposible
@@ -49,7 +56,10 @@ const reducerBuilder = (fsmConfig) =>
       };
     }
 
+    // Fire event as function
     fsm[action.type](action);
+
+    // Return next state after transition
     return {
       status: fsm.current,
       error: null,
@@ -58,6 +68,7 @@ const reducerBuilder = (fsmConfig) =>
     };
   };
 
+  // Open FSM
   reducer.fsm = fsm;
 
   return reducer;
