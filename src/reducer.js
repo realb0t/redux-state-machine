@@ -80,6 +80,7 @@ const reducerBuilder = (fsmConfig) =>
 
   // Open FSM
   reducer.fsm = fsm;
+  reducer.existEvent = existEvent;
 
   return reducer;
 };
