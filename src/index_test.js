@@ -3,10 +3,11 @@ import exportedReducer, {
   initial as exportedInitial,
   validTransite as exportedValidTransite,
   invalidTransite as exportedInvalidTransite,
-  onlyTransite as exportedOnlyTransite
+  onlyTransite as exportedOnlyTransite,
+  buildState as exportedBuildState
 } from './index.js'
 import { validTransite, invalidTransite, onlyTransite } from './tools.js';
-import reducer, { defaultState, initial } from './reducer.js'
+import reducer, { defaultState, initial, buildState } from './reducer.js'
 
 describe('Exporting', () =>
 {
@@ -23,6 +24,11 @@ describe('Exporting', () =>
   it('exportedInitial should be equal initial', () =>
   {
     expect(exportedInitial).to.be.equal(initial)
+  });
+
+  it('exportedBuildState should be equal buildState', () =>
+  {
+    expect(exportedBuildState).to.be.equal(buildState)
   });
 
   it('exportedValidTransite should be equal validTransite', () =>
