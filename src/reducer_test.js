@@ -1,4 +1,4 @@
-import reducerBuilder, { defaultState } from './reducer.js';
+import reducerBuilder, { defaultState, buildState } from './reducer.js';
 import assign from 'lodash/assign';
 
 let reducer = null;
@@ -35,45 +35,25 @@ describe('#reducerBuilder(fsmConfig)', () =>
   {
     const action = { type: LOAD };
     const nextState = reducer(defaultState, action);
-    expect(nextState).to.be.eql({
-      status: LOADING,
-      [LOADING]: true,
-      error: null,
-      action
-    });
+    expect(nextState).to.be.eql(buildState(LOADING, { action }));
   });
 
   it('Transition should be failure for invalid action', () =>
   {
     const action = { type: FAILURE };
     const nextState = reducer(defaultState, action);
-    expect(nextState).to.be.eql({
-      status: INIT,
-      [INIT]: true,
-      error: true,
-      action
-    });
+    expect(nextState).to.be.eql(buildState(INIT, { error: true, action }));
   });
 
   it('Should be transit if current fsm state is not equal state status (unmutable emulation)', () =>
   {
-    const newState = {
-      status: LOADING,
-      [LOADING]: true,
-      error: true,
-      action
-    };
+    const newState = buildState(LOADING, { error: true, action });
     const action = { type: SUCCESS };
     
     expect(reducer.fsm.current).to.be.equal(INIT);
     expect(reducer.fsm.current).to.not.equal(newState.status);
 
     const nextState = reducer(newState, action);
-    expect(nextState).to.be.eql({
-      status: LOADING_SUCCESS,
-      [LOADING_SUCCESS]: true,
-      error: null,
-      action
-    });
+    expect(nextState).to.be.eql(buildState(LOADING_SUCCESS, { action }));
   });
 });

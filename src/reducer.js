@@ -5,13 +5,23 @@ import zipObject from 'lodash/zipObject';
 import fill from 'lodash/fill';
 
 export const initial = 'INIT';
-export const defaultState =
-  {
-    status: initial,
-    error: null,
-    [initial]: true,
-    event: null
-  };
+
+/**
+ * Return new state object with status param
+ * @param  {String} status status name param
+ * @param  {Object} { action, error } addition params
+ * @return {Object} new state object
+ */
+export function buildState(status, { action = null, error = null } = {})
+{
+  return { [status]: true, action, error, status };
+} 
+
+/**
+ * Default state object
+ * @type {Object}
+ */
+export const defaultState = buildState(initial);
 
 /**
  * @param {Object} fsmConfig - Config as for javascript-state-machine
