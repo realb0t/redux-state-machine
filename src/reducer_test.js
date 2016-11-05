@@ -1,10 +1,9 @@
-import reducerBuilder, { defaultState, buildState } from './reducer.js';
+import reducerBuilder, { defaultState, buildState, initial as INIT } from './reducer.js';
 import assign from 'lodash/assign';
 
 let reducer = null;
 
 const UNDEFINED = 'UNDEFINED';
-const INIT = 'INIT';
 const LOAD = 'LOAD';
 const SUCCESS = 'SUCCESS';
 const FAILURE = 'FAILURE';
