@@ -49,31 +49,51 @@ var reducer = reducerBuilder.default({ /* ... */ });
 
 Initial reducer state is
 ```javascript
-  { status: 'INIT', event: null,
-    error: null, INIT: true }
+  {
+    status: 'INIT', // Current status (state name)
+    action: null,   // Last action (event for FSM)
+    error: null,    // If last transition firth error
+    INIT: true      // Helper-field for quick check status
+  }
 ```
 
 
 After dispatch action `LOAD` from `INIT` state, reducer state is
 ```javascript
-  { status: 'LOADING', action: { type: 'LOAD' /* payload */ },
-    error: null, LOADING: true }
+  {
+    status: 'LOADING',
+    action: { type: 'LOAD' /* ... */ },
+    error: null,
+    LOADING: true
+  }
 ```
 
 After dispatch action `SUCCESS` from `LOADING` state, reducer state is
 ```javascript
-  { status: 'LOADING_SUCCESS', action: { type: 'SUCCESS' /* payload */ },
-    error: null, LOADING_SUCCESS: true }
+  {
+    status: 'LOADING_SUCCESS',
+    action: { type: 'SUCCESS' /* ... */ },
+    error: null,
+    LOADING_SUCCESS: true
+  }
 ```
 
 After dispatch action `FAILURE` from `LOADING` state, reducer state is
 ```javascript
-  { status: 'LOADING_FAILURE', action: { type: 'FAILURE' /* payload */ },
-    error: null, LOADING_FAILURE: true }
+  {
+    status: 'LOADING_FAILURE',
+    action: { type: 'FAILURE' /* ... */ },
+    error: null,
+    LOADING_FAILURE: true
+  }
 ```
 
 After dispatch action `LOAD` from `LOADING_SUCCESS` state __(error case)__ reducer state is
 ```javascript
-  { status: 'LOADING_SUCCESS', action: { type: 'LOAD' /* payload */ },
-    error: true, LOADING_SUCCESS: true }
+  {
+    status: 'LOADING_SUCCESS',
+    action: { type: 'LOAD' /* ... */ },
+    error: true,
+    LOADING_SUCCESS: true
+  }
 ```
