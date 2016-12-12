@@ -15,7 +15,7 @@ export const initial = 'INIT';
 export function buildState(status, { action = null, error = null } = {})
 {
   return { [status]: true, action, error, status };
-} 
+}
 
 /**
  * Default state object

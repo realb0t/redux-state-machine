@@ -1,5 +1,5 @@
-import reducerBuilder, { initial as INIT, defaultState } from './reducer';
-import { validTransite, invalidTransite, onlyTransite } from './tools.js';
+import reducerBuilder, { initial as INIT } from './reducer';
+import { validTransite, invalidTransite } from './tools.js';
 
 let reducer = null;
 
@@ -9,7 +9,7 @@ const OTHER = 'OTHER';
 const MIRACLE = 'MIRACLE';
 const IMPOSIBLE = 'IMPOSIBLE';
 
-describe("Tools", () =>
+describe('Tools', () =>
 {
   beforeEach(() =>
   {

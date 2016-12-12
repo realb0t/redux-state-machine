@@ -1,5 +1,4 @@
 import reducerBuilder, { defaultState, buildState, initial as INIT } from './reducer.js';
-import assign from 'lodash/assign';
 
 let reducer = null;
 
@@ -24,11 +23,12 @@ describe('#reducerBuilder(fsmConfig)', () =>
     });
   });
 
-  it('Transition should be ignore for undefined action', () => {
+  it('Transition should be ignore for undefined action', () =>
+  {
     const action = { type: UNDEFINED };
     const nextState = reducer(defaultState, action);
     expect(nextState).to.be.equal(defaultState);
-  })
+  });
 
   it('Transition should be success for valid action', () =>
   {
@@ -46,9 +46,9 @@ describe('#reducerBuilder(fsmConfig)', () =>
 
   it('Should be transit if current fsm state is not equal state status (unmutable emulation)', () =>
   {
-    const newState = buildState(LOADING, { error: true, action });
     const action = { type: SUCCESS };
-    
+    const newState = buildState(LOADING, { error: true, action });
+
     expect(reducer.fsm.current).to.be.equal(INIT);
     expect(reducer.fsm.current).to.not.equal(newState.status);
 
