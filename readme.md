@@ -5,6 +5,13 @@ Implementation [javascript-state-machine](http://github.com/jakesgordon/javascri
 Redux Action is Event for FSM. It changing FSM `state.status`
 and remember in `state.event`.
 
+This library is intended to describe meta information of discrete state process.
+For example steps of fetching ресурсес which has state:
+
+```
+INIT -> LOADING -> SUCCESS or FAILURE
+```
+
 Default `state.status` is `INIT`.
 
 Features:
